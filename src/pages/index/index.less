@@ -1,0 +1,31 @@
+@import '../../theme.less';
+@left-width: 40%;
+.index {
+  display: flex;
+  padding-left: 160px;
+  padding-right: 20px;
+  background: #fff;
+  min-height: 100%;
+  .left_section {
+    width: @left-width;
+    .top_section {
+      padding: 10px;
+      height: 50%;
+      overflow-y: scroll;
+      &::-webkit-scrollbar {
+          display: none;
+      }
+    }
+  }
+  .right_section {
+    width: 100% - @left-width;
+  }
+}
+.section_title {
+  border-left: 3px solid @theme-color;
+  // border-bottom:1px solid #eaeaea;
+  margin: 10px 0;
+  padding: 3px 14px;
+  color: @theme-color;
+  line-height: 20px;
+}

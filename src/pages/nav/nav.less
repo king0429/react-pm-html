@@ -1,0 +1,49 @@
+@import '../../theme.less';
+@hidden-width: 70px;
+@nav-height: 54px;
+.nav_wrap {
+  height: 100%;
+  position: fixed;
+  transition: all .3s ease-out;
+  top: 0;
+  width: @hidden-width;
+  overflow: hidden;
+  .slide_nav {
+    position: relative;
+    background-color: @theme-color;
+    color: #fff;
+    height: 100%;
+    width: 140px;
+    li {
+      width: 100%;
+      height: @nav-height;
+      line-height: @nav-height;
+      display: flex;
+      cursor: pointer;
+      i {
+        width: @hidden-width;
+        font-size: 20px;
+        text-align: center;
+      }
+      span {
+        font-size: 14px;
+      }
+    }
+    li:hover {
+      color: @theme-color;
+      background: #fff;
+    }
+    li:last-child {
+      position: absolute;
+      bottom: 0;
+      // z-index: -1;
+    }
+    li.sel {
+      color: @theme-color;
+      background: #fff;
+    }
+  }
+}
+.nav_wrap:hover {
+  width: 140px;
+}

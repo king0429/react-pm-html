@@ -1,0 +1,36 @@
+@theme-color: #4cb4e7;
+@theme-recolor: #ffcd4b;
+@cross-color: #ffc09f;
+@tip-color: #e2dbbe;
+@disable-color: #a3a380;
+@danger-color: #ff4d4f;
+@safe-color: #0DA01B;
+@font-color: rgba(0, 0, 0, .65);
+
+
+.one_line {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+i.status_not_start, i.status_donging, i.status_completed, i.status_calceled, i.status_verfying {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+i.status_not_start {
+  background: @danger-color;
+}
+i.status_donging {
+  background: @theme-color;
+}
+i.status_completed {
+  background: @safe-color;
+}
+i.status_calceled {
+  background: #ccc;
+}
+i.status_verfying {
+  background: @theme-recolor;
+}
