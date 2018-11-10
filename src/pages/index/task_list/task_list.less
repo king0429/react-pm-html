@@ -1,12 +1,13 @@
 @import '../../../theme.less';
-.project_list {
+@item-height: 38px;
+.task_list {
   padding: 10px 20px;
   li {
     list-style: none;
     display: flex;
     align-items: center;
     border-bottom: 1px solid #f1f1f1;
-    height: 38px;
+    height: @item-height;
     div {
       width: 33%;
       text-align: center;
@@ -14,27 +15,35 @@
     div:first-child {
       display: flex;
       align-items: center;
+      justify-content: center;
       padding: 0 8px;
+      color: #999;
       .one_line;
+    }
+    div:nth-child(2) {
+      color: @font-color;
       span {
-        color: @theme-color;
         cursor: pointer;
       }
       span:hover {
+        color: @theme-color;
         text-decoration: underline;
       }
     }
-    div:nth-child(2) {
-      color: #999;
-    }
     div:last-child {
-      i {
-        color: @theme-recolor;
-        margin: 0 2px;
+      span {
+        color: @font-color;
       }
     }
   }
-  li.project_list_title {
+  li.none_type {
+    height: 5 * @item-height;
+    line-height: 5 * @item-height;
+    // border: none;
+    justify-content: center;
+    color: #999;
+  }
+  li.task_list_title {
     height: 45px;
     div {
       color: @font-color;

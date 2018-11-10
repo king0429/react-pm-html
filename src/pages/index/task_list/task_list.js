@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import './task_list.less';
 
 class IndexTask extends Component {
@@ -17,13 +18,20 @@ class IndexTask extends Component {
     }
   }
   componentWillMount () {
-    this.setState({showList: [
-      {task_number: '12345612346', task_name: '任务132465', start_date: '2019-12-11', end_date: '2019-12-20'},
-      {task_number: '12345612346', task_name: '任务132465', start_date: '2019-12-11', end_date: '2019-12-20'},
-      {task_number: '12345612346', task_name: '任务132465', start_date: '2019-12-11', end_date: '2019-12-20'},
-      {task_number: '12345612346', task_name: '任务132465', start_date: '2019-12-11', end_date: '2019-12-20'},
-      {task_number: '12345612346', task_name: '任务132465', start_date: '2019-12-11', end_date: '2019-12-20'}
-    ]})
+    const that = this
+    axios.get(`/task/task_list`).then(res => {
+      console.log(res)
+      if (res.data.code === 1) {
+        that.setState({showList: res.data.list})
+      }
+    })
+    // this.setState({showList: [
+    //   {task_number: '12345612346', task_name: '任务132465', start_date: '2019-12-11', end_date: '2019-12-20'},
+    //   {task_number: '12345612346', task_name: '任务132465', start_date: '2019-12-11', end_date: '2019-12-20'},
+    //   {task_number: '12345612346', task_name: '任务132465', start_date: '2019-12-11', end_date: '2019-12-20'},
+    //   {task_number: '12345612346', task_name: '任务132465', start_date: '2019-12-11', end_date: '2019-12-20'},
+    //   {task_number: '12345612346', task_name: '任务132465', start_date: '2019-12-11'}
+    // ]})
   }
   render () {
     return (
@@ -38,15 +46,25 @@ class IndexTask extends Component {
           }
         </li>
         {
+          this.state.showList.length === 0 ?
+          <li className='none_type'>暂无任务</li>
+          :
+          ''
+        }
+        {
           this.state.showList.map((val, index) => {
             return (
               <li key={index}>
                 <div>
                   <span title={val.task_number}>{val.task_number}</span>
                 </div>
-                <div>{val.task_name}</div>
                 <div>
-                  <span>{val.start_date + '-' + val.end_date }</span>
+                  <span>{val.task_name}</span>
+                </div>
+                <div>
+                  <span>{val.start_date}</span>
+                  <span> 至 </span>
+                  <span style={!val.end_date ? {color: "#999"} : {}}>{val.end_date || '未填写'}</span>
                 </div>
               </li>
             )

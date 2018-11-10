@@ -10,12 +10,13 @@ class Nav extends Component {
   initalState () {
     return {
       nav: [
-        {name: '首页', icon: 'iconfont icon-icon_zhanghao', url: ''},
+        {name: '首页', icon: 'iconfont icon-ditu-qi', url: ''},
         {name: '项目', icon: 'iconfont icon-daibanshixiang', url: ''},
         {name: '计划', icon: 'iconfont icon-renwujincheng', url: ''},
         {name: '任务', icon: 'iconfont icon-renwu', url: ''},
         {name: '进度', icon: 'iconfont icon-renwujincheng'},
         {name: '文档', icon: 'iconfont icon-shiyongwendang', url: ''},
+        {name: '消息', icon: 'iconfont icon-xiaoxitongzhi', url: ''},
         {name: '设置', icon: 'iconfont icon-icon_shezhi', url: ''}
       ],
       setIndex: 0

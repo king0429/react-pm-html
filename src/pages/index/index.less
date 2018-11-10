@@ -22,10 +22,21 @@
   }
 }
 .section_title {
+  display: flex;
+  justify-content: space-between;
   border-left: 3px solid @theme-color;
   // border-bottom:1px solid #eaeaea;
   margin: 10px 0;
   padding: 3px 14px;
   color: @theme-color;
   line-height: 20px;
+  span:last-child {
+    color: @theme-recolor;
+    padding: 3px 2px;
+  }
+  span:last-child:hover {
+    color: @theme-recolor;
+    text-decoration: underline;
+    cursor: pointer;
+  }
 }

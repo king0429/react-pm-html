@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Icon } from 'antd';
 import './project_list.less';
+import axios from 'axios';
 
 class IndexProject extends Component {
   constructor (props) {
@@ -18,20 +19,27 @@ class IndexProject extends Component {
     }
   }
   componentWillMount () {
-    this.setState({showList: [
-      {project_status: 0, project_title: '1', project_class: '1', project_charger: '2018-01-02'},
-      {project_status: 1, project_title: '1', project_class: '3', project_charger: '2018-01-02'},
-      {project_status: 2, project_title: '1', project_class: '3', project_charger: '2018-01-02'},
-      {project_status: 3, project_title: '1', project_class: '4', project_charger: '2018-01-02'},
-      {project_status: 4, project_title: '1', project_class: '3', project_charger: '2018-01-02'},
-      {project_status: 0, project_title: '1', project_class: '3', project_charger: '2018-01-02'}
-    ]})
+    const that = this
+    axios.get(`/project/project_list`).then(res => {
+      console.log(res)
+      if (res.data.code === 1) {
+        that.setState({showList: res.data.list})
+      }
+    })
+    // this.setState({showList: [
+    //   {project_status: 0, project_title: '1', project_class: '1', project_charger: '2018-01-02'},
+    //   {project_status: 1, project_title: '1', project_class: '3', project_charger: '2018-01-02'},
+    //   {project_status: 2, project_title: '1', project_class: '3', project_charger: '2018-01-02'},
+    //   {project_status: 3, project_title: '1', project_class: '4', project_charger: '2018-01-02'},
+    //   {project_status: 4, project_title: '1', project_class: '3', project_charger: '2018-01-02'},
+    //   {project_status: 0, project_title: '1', project_class: '3', project_charger: '2018-01-02'}
+    // ]})
   }
   render () {
     let statusList = ['not_start', 'donging', 'completed', 'calceled', 'verfying']
     this.state.showList.forEach((val, index) => {
       val.stars = []
-      for (let i = 0; i < Number(val.project_class); i++) {
+      for (let i = 0; i < Number(val.projec_level); i++) {
         val.stars.push(<Icon key={i} type='star' theme="filled" />)
       }
       val.state = 'status_' + statusList[val.project_status]
@@ -53,9 +61,9 @@ class IndexProject extends Component {
               <li key={index}>
                 <div>
                   <i className={val.state}></i>
-                  <span title={val.project_title}>{val.project_title}</span>
+                  <span title={val.project_name}>{val.project_name}</span>
                 </div>
-                <div>{val.project_charger}</div>
+                <div>{window.frames.$time(val.create_time)}</div>
                 <div>{val.stars}</div>
               </li>
             )
