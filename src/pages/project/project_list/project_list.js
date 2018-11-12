@@ -12,10 +12,11 @@ class ProjectList extends Component {
       showList: [],
       showTitle: [
         {name: '项目名称', key: 'project_name'},
-        {name: '创建时间', key: 'create_time'},
+        {name: '创建日期', key: 'create_time'},
         {name: '项目状态', key: 'project_status'},
         {name: '项目级别', key: 'project_level'},
-        {name: '项目周期', key: 'project_duration'}
+        {name: '项目周期', key: 'project_duration'},
+        {name: '操作'}
       ],
       stausList: [
         {title: '未开始', className: 'status_not_start-color'},
@@ -41,7 +42,7 @@ class ProjectList extends Component {
   }
   render () {
     return (
-      <div className="project_list">
+      <div className="show_project_list">
         <table cellSpacing='0' cellPadding='0' border='1px' bordercolor='#eaeaea'>
           <tbody>
             <tr>
@@ -56,10 +57,13 @@ class ProjectList extends Component {
                 return (
                 <tr key={index}>
                   <td>{val.project_name}</td>
-                  <td>{window.frames.$time(val.create_time)}</td>
+                  <td>{window.frames.$time(val.create_time, 1)}</td>
                   <td className={this.state.stausList[val.project_status].className}>{this.state.stausList[val.project_status].title}</td>
                   <td>{val.project_level}</td>
                   <td>{val.project_duration}</td>
+                  <td className='operate_btn'>
+                    <span>查看</span>
+                  </td>
                 </tr>
                 )
               })

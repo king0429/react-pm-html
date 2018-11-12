@@ -8,12 +8,8 @@ console.log(route)
 class App extends Component {
   constructor () {
     super()
-    this.state = this.initalState()
   }
   initalState () {
-    return {
-      route
-    }
   }
   render() {
     return (
@@ -21,7 +17,7 @@ class App extends Component {
         <div className='container' style={{height: '100%'}}>
           <Nav />
           {
-            this.state.route.map((val, index) => {
+            route.map((val, index) => {
               return <Route exact path={val.url} key={index} component={val.name}></Route>
             })
           }
