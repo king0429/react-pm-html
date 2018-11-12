@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './project_list.less';
+import { Icon } from 'antd';
 
 class ProjectList extends Component {
   constructor (props) {
@@ -41,6 +42,12 @@ class ProjectList extends Component {
     this.handlePetch()
   }
   render () {
+    this.state.showList.forEach((val, index) => {
+      val.stars = []
+      for (let i = 0; i < Number(val.project_level); i++) {
+        val.stars.push(<Icon key={i} type='star' theme="filled" />)
+      }
+    })
     return (
       <div className="show_project_list">
         <table cellSpacing='0' cellPadding='0' border='1px' bordercolor='#eaeaea'>
@@ -59,8 +66,8 @@ class ProjectList extends Component {
                   <td>{val.project_name}</td>
                   <td>{window.frames.$time(val.create_time, 1)}</td>
                   <td className={this.state.stausList[val.project_status].className}>{this.state.stausList[val.project_status].title}</td>
-                  <td>{val.project_level}</td>
-                  <td>{val.project_duration}</td>
+                  <td>{val.stars}</td>
+                  <td>{val.project_duration ? val.project_duration + '天' : '未填写'}</td>
                   <td className='operate_btn'>
                     <span>查看</span>
                   </td>

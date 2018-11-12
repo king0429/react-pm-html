@@ -10,10 +10,11 @@ class IndexProject extends Component {
   }
   initalState () {
     return {
+      sheetsList: ['not_start', 'donging', 'completed', 'calceled', 'verfying'],
       showTitle: [
         {name: '项目名称', key: 'project_title'},
         {name: '创建时间', key: 'project_time'},
-        {name: '项目级别', key: 'project_class'}
+        {name: '项目时长', key: 'project_projecet_duration'}
       ],
       showList: []
     }
@@ -36,14 +37,6 @@ class IndexProject extends Component {
     // ]})
   }
   render () {
-    let statusList = ['not_start', 'donging', 'completed', 'calceled', 'verfying']
-    this.state.showList.forEach((val, index) => {
-      val.stars = []
-      for (let i = 0; i < Number(val.projec_level); i++) {
-        val.stars.push(<Icon key={i} type='star' theme="filled" />)
-      }
-      val.state = 'status_' + statusList[val.project_status]
-    })
     return (
       <ul className='project_list'>
         <li className="project_list_title">
@@ -60,11 +53,11 @@ class IndexProject extends Component {
             return (
               <li key={index}>
                 <div>
-                  <i className={val.state}></i>
+                  <i className={'status_' + this.state.sheetsList[val.project_status]}></i>
                   <span title={val.project_name}>{val.project_name}</span>
                 </div>
                 <div>{window.frames.$time(val.create_time)}</div>
-                <div>{val.stars}</div>
+                <div>{val.projecet_duration ? val.projecet_duration + '天' : '未填写'}</div>
               </li>
             )
           })
