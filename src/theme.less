@@ -6,6 +6,7 @@
 @danger-color: #ff4d4f;
 @safe-color: #0DA01B;
 @font-color: rgba(0, 0, 0, .65);
+@border-color: #eaeaea;
 
 
 .one_line {
@@ -26,18 +27,34 @@ i.status_not_start, i.status_donging, i.status_completed, i.status_calceled, i.s
   border-radius: 50%;
   margin-right: 8px;
 }
-.status_not_start {
+.status_not_start-color {
+  color: @danger-color;
+}
+.status_donging-color {
+  color: @theme-color;
+}
+.status_completed-color {
+  color: @safe-color;
+}
+.status_calceled-color {
+  color: #ccc;
+}
+.status_verfying-color {
+  color: @theme-recolor;
+}
+
+i.status_not_start {
   background: @danger-color;
 }
-.status_donging {
+i.status_donging {
   background: @theme-color;
 }
-.status_completed {
+i.status_completed {
   background: @safe-color;
 }
-.status_calceled {
+i.status_calceled {
   background: #ccc;
 }
-.status_verfying {
+i.status_verfying {
   background: @theme-recolor;
 }
