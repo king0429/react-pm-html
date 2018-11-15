@@ -12,7 +12,7 @@ class Nav extends Component {
       nav: [
         {name: '首页', icon: 'iconfont icon-ditu-qi', url: '/'},
         {name: '项目', icon: 'iconfont icon-daibanshixiang', url: '/project_list'},
-        {name: '计划', icon: 'iconfont icon-renwujincheng', url: '/task_list'},
+        {name: '计划', icon: 'iconfont icon-renwujincheng', url: '/plan_list'},
         {name: '任务', icon: 'iconfont icon-renwu', url: ''},
         {name: '进度', icon: 'iconfont icon-renwujincheng'},
         {name: '文档', icon: 'iconfont icon-shiyongwendang', url: ''},
@@ -25,9 +25,8 @@ class Nav extends Component {
   // 点击跳转
   handleClick (index) {
     let nav = this.state.nav
-    console.log(this.refs)
-    if (this.state.selIndex !== index && nav[index].url) {
-      // this.refs.navWrap.style.width = '70px';
+    let pathName = window.location.pathname
+    if (nav[index].url !== pathName && nav[index].url) {
       document.getElementById('mavWrap').style.width = '70px';
       setTimeout(() => {
        window.location.href = nav[index].url

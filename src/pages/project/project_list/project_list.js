@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './project_list.less';
-import { Icon } from 'antd';
+import { Icon, Pagination } from 'antd';
 
 class ProjectList extends Component {
   constructor (props) {
@@ -25,7 +25,8 @@ class ProjectList extends Component {
         {title: '已完成', className: 'status_completed-color'},
         {title: '已取消', className: 'status_calceled-color'},
         {title: '审核中', className: 'status_verfying-color'}
-      ]
+      ],
+      pageLen: 0
     }
   }
   handlePetch (p, ps) {
@@ -34,9 +35,12 @@ class ProjectList extends Component {
     const that = this
     axios.get(`/project/project_list?page=${page}&page_szie=${page_size}`).then(res => {
       if (res.data.code === 1) {
-        that.setState({showList: res.data.list})
+        that.setState({showList: res.data.list, pageLen: res.data.len})
       }
     })
+  }
+  handleCreate () {
+    this.props.history.push('/project_list/create')
   }
   componentWillMount () {
     this.handlePetch()
@@ -50,6 +54,9 @@ class ProjectList extends Component {
     })
     return (
       <div className="show_project_list">
+        <div className='btn_list'>
+          <button type="button" name="button" onClick={() => this.handleCreate()}>创建项目</button>
+        </div>
         <table cellSpacing='0' cellPadding='0' border='1px' bordercolor='#eaeaea'>
           <tbody>
             <tr>
@@ -77,6 +84,14 @@ class ProjectList extends Component {
             }
           </tbody>
         </table>
+        {
+          this.state.pageLen > 10 ?
+          <div className='page'>
+            <Pagination defaultCurrent={1} total={this.state.pageLen} />
+          </div>
+          :
+          ''
+        }
       </div>
     )
   }

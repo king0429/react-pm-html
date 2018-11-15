@@ -26,14 +26,6 @@ class IndexProject extends Component {
         that.setState({showList: res.data.list})
       }
     })
-    // this.setState({showList: [
-    //   {project_status: 0, project_title: '1', project_class: '1', project_charger: '2018-01-02'},
-    //   {project_status: 1, project_title: '1', project_class: '3', project_charger: '2018-01-02'},
-    //   {project_status: 2, project_title: '1', project_class: '3', project_charger: '2018-01-02'},
-    //   {project_status: 3, project_title: '1', project_class: '4', project_charger: '2018-01-02'},
-    //   {project_status: 4, project_title: '1', project_class: '3', project_charger: '2018-01-02'},
-    //   {project_status: 0, project_title: '1', project_class: '3', project_charger: '2018-01-02'}
-    // ]})
   }
   render () {
     return (
