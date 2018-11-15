@@ -4,13 +4,7 @@ import route from './router/index.js'
 import Nav from './pages/nav/nav';
 import './App.css';
 import './reset.less';
-console.log(route)
 class App extends Component {
-  constructor () {
-    super()
-  }
-  initalState () {
-  }
   render() {
     return (
       <BrowserRouter>

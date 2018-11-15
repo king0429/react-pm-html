@@ -2,10 +2,10 @@
 @td-height: 43px;
 .show_project_list {
   display: flex;
-  padding-top: 20px;
+  padding-top: 40px;
   padding-left: 160px;
   padding-right: 60px;
-  background: #fafafa;
+  background: #fdfdfd;
   min-height: 100%;
   table {
     width: 100%;
@@ -19,9 +19,11 @@
         }
       }
       td.operate_btn:last-child {
-        color: @theme-color;
-        cursor: pointer;
-        text-decoration: underline;
+        span {
+          color: @theme-color;
+          cursor: pointer;
+          text-decoration: underline;
+        }
       }
     }
     tr:first-child {

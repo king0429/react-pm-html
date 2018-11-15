@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Icon } from 'antd';
 import './project_list.less';
 import axios from 'axios';
 
@@ -57,7 +56,7 @@ class IndexProject extends Component {
                   <span title={val.project_name}>{val.project_name}</span>
                 </div>
                 <div>{window.frames.$time(val.create_time)}</div>
-                <div>{val.projecet_duration ? val.projecet_duration + '天' : '未填写'}</div>
+                <div>{val.project_duration ? val.project_duration + '天' : '未填写'}</div>
               </li>
             )
           })
