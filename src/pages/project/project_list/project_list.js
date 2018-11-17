@@ -85,6 +85,12 @@ class ProjectList extends Component {
           </tbody>
         </table>
         {
+          this.state.showList.length === 0 ?
+          <p className='pro_null'>暂无项目</p>
+          :
+          ''
+        }
+        {
           this.state.pageLen > 10 ?
           <div className='page'>
             <Pagination defaultCurrent={1} total={this.state.pageLen} />

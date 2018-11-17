@@ -1,3 +1,4 @@
+// params
 @theme-color: #4cb4e7;
 @theme-recolor: #ffcd4b;
 @cross-color: #ffc09f;
@@ -8,19 +9,14 @@
 @font-color: rgba(0, 0, 0, .65);
 @border-color: #eaeaea;
 
-
+// class
+// 单行显示
 .one_line {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-// .none_type {
-//   height: 400%;
-//   border: none;
-//   text-align: center;
-//   line-height: 1.1;
-//   color: #999;
-// }
+// 状态颜色
 i.status_not_start, i.status_donging, i.status_completed, i.status_calceled, i.status_verfying {
   width: 12px;
   height: 12px;
@@ -42,7 +38,7 @@ i.status_not_start, i.status_donging, i.status_completed, i.status_calceled, i.s
 .status_verfying-color {
   color: @theme-recolor;
 }
-
+// 状态图标
 i.status_not_start {
   background: @danger-color;
 }
@@ -58,6 +54,22 @@ i.status_calceled {
 i.status_verfying {
   background: @theme-recolor;
 }
+// 页面标题
+.page_title {
+  @fz: 18px;
+  line-height: 45px;
+  color: @theme-recolor;
+  border-bottom: 1px solid @border-color;
+  i {
+    font-size: @fz + 4px;
+    margin-right: 14px;
+  }
+  span {
+    font-size: @fz;
+  }
+}
+// function
+// 创建按钮
 .btn-create (@color: @theme-color) {
   width: 90px;
   height: 36px;
@@ -67,4 +79,11 @@ i.status_verfying {
   border: none;
   outline: none;
   cursor: pointer;
+}
+// 空列表提示
+.is_null(@fc: #999, @height, @line:@height) {
+  color: @fc;
+  height: @height;
+  line-height: @line;
+  text-align: center;
 }
