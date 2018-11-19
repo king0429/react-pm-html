@@ -13,7 +13,18 @@ window.frames.$time = (str, key) => {
     return str.replace('T', ' ').substr(0, str.indexOf('.'))
   }
 }
-
+window.frames.$query = (s) => {
+  let str = s.substring('1', s.length)
+  let arr = str.split('&')
+  console.log(arr)
+  let obj = {}
+  arr.forEach(val => {
+    let key = val.substring(0, val.indexOf('='))
+    let va = val.substring(val.indexOf('=') + 1, val.length)
+    obj[key] = va
+  })
+  return obj
+}
 ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

@@ -11,8 +11,8 @@ class Nav extends Component {
     return {
       nav: [
         {name: '首页', icon: 'iconfont icon-ditu-qi', url: '/'},
-        {name: '项目', icon: 'iconfont icon-daibanshixiang', url: '/project_list'},
-        {name: '计划', icon: 'iconfont icon-renwujincheng', url: '/plan_list'},
+        {name: '项目', icon: 'iconfont icon-daibanshixiang', url: '/project'},
+        {name: '计划', icon: 'iconfont icon-renwujincheng', url: '/plan'},
         {name: '任务', icon: 'iconfont icon-renwu', url: ''},
         {name: '进度', icon: 'iconfont icon-renwujincheng'},
         {name: '文档', icon: 'iconfont icon-shiyongwendang', url: ''},

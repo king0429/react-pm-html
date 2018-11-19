@@ -20,15 +20,16 @@ class ProjectList extends Component {
         {name: '操作'}
       ],
       stausList: [
-        {title: '未开始', className: 'status_not_start-color'},
         {title: '进行中', className: 'status_donging-color'},
         {title: '已完成', className: 'status_completed-color'},
         {title: '已取消', className: 'status_calceled-color'},
-        {title: '审核中', className: 'status_verfying-color'}
+        {title: '审核中', className: 'status_verfying-color'},
+        {title: '未开始', className: 'status_not_start-color'}
       ],
       pageLen: 0
     }
   }
+  // 网络请求
   handlePetch (p, ps) {
     let page = p || 0
     let page_size = ps || 10
@@ -39,11 +40,19 @@ class ProjectList extends Component {
       }
     })
   }
+  // 跳转创建
   handleCreate () {
-    this.props.history.push('/project_list/create')
+    this.props.history.push('/project/create')
   }
+
+  // 获取数据生命周期
   componentWillMount () {
     this.handlePetch()
+  }
+  // 条状详情
+  handleNav (id) {
+    console.log(this.props)
+    this.props.history.push(`/project/detail?id=${id}`)
   }
   render () {
     this.state.showList.forEach((val, index) => {
@@ -76,7 +85,7 @@ class ProjectList extends Component {
                   <td>{val.stars}</td>
                   <td>{val.project_duration ? val.project_duration + '天' : '未填写'}</td>
                   <td className='operate_btn'>
-                    <span>查看</span>
+                    <span onClick={() => this.handleNav(val._id)}>查看</span>
                   </td>
                 </tr>
                 )
