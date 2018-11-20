@@ -34,7 +34,7 @@ class ProjectList extends Component {
     let page = p || 0
     let page_size = ps || 10
     const that = this
-    axios.get(`/project/project_list?page=${page}&page_szie=${page_size}`).then(res => {
+    axios.get(`/project/project_list?page=${page}&page_size=${page_size}`).then(res => {
       if (res.data.code === 1) {
         that.setState({showList: res.data.list, pageLen: res.data.len})
       }

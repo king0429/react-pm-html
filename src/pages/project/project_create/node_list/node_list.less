@@ -1,0 +1,60 @@
+@import '../../../../theme.less';
+.node_list {
+  .node_list_title {
+    line-height: 120px * .63;
+    .add_node {
+      margin-left: 36px;
+      text-decoration: underline;
+      color: @theme-recolor;
+      cursor: pointer;
+    }
+  }
+  .node_item {
+    .node_info_line {
+      display: flex;
+      height: 120px;
+      align-items: center;
+      &>div {
+        display: flex;
+        width: 37%;
+        height: 32px;
+        &>span:first-child {
+          width: 90px;
+          line-height: 32px;
+        }
+      }
+      &>div:first-child {
+        input {
+          border: 1px solid #d9d9d9;
+          border-radius: 4px;
+          width: 316px;
+          outline: none;
+          padding: 0 12px;
+        }
+        input:focus {
+          border: 1px solid #40a9ff;
+        }
+      }
+      .data_picker {
+        &>span:hover{
+          border-color: #eaeaea;
+        }
+      }
+    }
+    .node_info_detail {
+      display: flex;
+      span {
+        width: 90px;
+        line-height: 30px;
+      }
+      textarea {
+        width: 850px;
+        height: 240px;
+        border-radius: 4px;
+        border: 1px solid #d9d9d9;
+        resize: none;
+        padding:  8px 10px;
+      }
+    }
+  }
+}

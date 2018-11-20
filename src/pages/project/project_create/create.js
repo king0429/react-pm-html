@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './create.less';
 import { message } from 'antd';
 import axios from 'axios';
+import NodeList from './node_list/node_list';
 
 class projectCreate extends Component {
   constructor (props) {
@@ -21,13 +22,15 @@ class projectCreate extends Component {
         {name: '关联人5', id: 5, checked: false},
       ],
       docsList: [],
-      selectPerson: []
+      selectPerson: [],
+      nodeList: []
     }
   }
   // 点击下拉选择
   handleSlide (e) {
     this.setState({slide: !this.state.slide})
   }
+  // 下来选择组成员
   handleSelectPerson (index) {
     let personList = this.state.personList
     let currentItem = personList[index]
@@ -60,11 +63,7 @@ class projectCreate extends Component {
       message.error('请输入项目时长')
     } else {
       let subData = {project_name: project_name.value, project_duration: project_duration.value, project_level: project_level.value, project_desc: project_desc.value, project_originator: 'dev'}
-      subData.project_persion = []
-      this.state.selectPerson.forEach(val => {
-        if (val.checked) subData.project_persion.push(val.id)
-      })
-      // console.log(subData)
+      subData.project_persion = this.state.selectPerson
       axios.post(`/project/create_project`, subData).then(res => {
         if (res.data.code === 1) {
           message.success('创建成功', 1000, () => {
@@ -141,6 +140,7 @@ class projectCreate extends Component {
             <textarea name="name" ref='project_desc'></textarea>
           </div>
         </div>
+        <NodeList />
         <div className="btn_line">
           <button onClick={() => {this.handleSubmit()}}>创建项目</button>
         </div>
