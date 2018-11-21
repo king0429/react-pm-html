@@ -40,6 +40,7 @@ class IndexProject extends Component {
           }
         </li>
         {
+          this.state.showList.length !== 0 ?
           this.state.showList.map((val, index) => {
             return (
               <li key={index}>
@@ -52,6 +53,8 @@ class IndexProject extends Component {
               </li>
             )
           })
+          :
+          <li className='null_project'>暂无项目</li>
         }
       </ul>
     )
