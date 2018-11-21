@@ -16,10 +16,16 @@
   table {
     width: 100%;
     padding: 20px 0;
+    // min-height: 485px;
+    table-layout: fixed;
+    word-break: break-all;
+    word-wrap: break-word;
     tr {
+      height: @td-height;
       td {
         text-align: center;
         line-height: @td-height;
+        height: @td-height;
         i {
           color: @theme-recolor;
         }

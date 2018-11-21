@@ -25,6 +25,14 @@ window.frames.$query = (s) => {
   })
   return obj
 }
+window.frames.$number = (str, add) => {
+  let changeList = ['Pr-', 'Taxt-', 'Pl-']
+  if (!str) {
+    return ''
+  } else {
+    return changeList[add] + str.replace(/-/g, '')
+  }
+}
 ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

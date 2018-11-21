@@ -14,9 +14,9 @@ class ProjectList extends Component {
       showTitle: [
         {name: '项目名称', key: 'project_name'},
         {name: '创建日期', key: 'create_time'},
-        {name: '项目状态', key: 'project_status'},
         {name: '项目级别', key: 'project_level'},
         {name: '项目周期', key: 'project_duration'},
+        {name: '项目状态', key: 'project_status'},
         {name: '操作'}
       ],
       stausList: [
@@ -54,6 +54,11 @@ class ProjectList extends Component {
     console.log(this.props)
     this.props.history.push(`/project/detail?id=${id}`)
   }
+  //  翻页
+  handlePage (e) {
+    console.log(e)
+    this.handlePetch(e, 10)
+  }
   render () {
     this.state.showList.forEach((val, index) => {
       val.stars = []
@@ -81,9 +86,9 @@ class ProjectList extends Component {
                 <tr key={index}>
                   <td>{val.project_name}</td>
                   <td>{window.frames.$time(val.create_time, 1)}</td>
-                  <td className={this.state.stausList[val.project_status].className}>{this.state.stausList[val.project_status].title}</td>
                   <td>{val.stars}</td>
                   <td>{val.project_duration ? val.project_duration + '天' : '未填写'}</td>
+                  <td className={this.state.stausList[val.project_status].className}>{this.state.stausList[val.project_status].title}</td>
                   <td className='operate_btn'>
                     <span onClick={() => this.handleNav(val._id)}>查看</span>
                   </td>
@@ -102,7 +107,7 @@ class ProjectList extends Component {
         {
           this.state.pageLen > 10 ?
           <div className='page'>
-            <Pagination defaultCurrent={1} total={this.state.pageLen} />
+            <Pagination defaultCurrent={1} total={this.state.pageLen} onChange={(e) => this.handlePage(e)} />
           </div>
           :
           ''
