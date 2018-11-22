@@ -51,7 +51,6 @@ class ProjectList extends Component {
   }
   // 条状详情
   handleNav (id) {
-    console.log(this.props)
     this.props.history.push(`/project/detail?id=${id}`)
   }
   //  翻页

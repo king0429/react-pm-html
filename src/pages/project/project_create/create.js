@@ -19,7 +19,7 @@ class projectCreate extends Component {
         {name: '关联人2', id: 2, checked: false},
         {name: '关联人3', id: 3, checked: false},
         {name: '关联人4', id: 4, checked: false},
-        {name: '关联人5', id: 5, checked: false},
+        {name: '关联人5', id: 5, checked: false}
       ],
       docsList: [],
       selectPerson: [],
@@ -55,7 +55,6 @@ class projectCreate extends Component {
   }
   // 提交数据
   handleSubmit () {
-    console.log(this.props)
     let {project_name, project_duration, project_level, project_desc} = this.refs
     if (project_name.value === '') {
       message.error('请输入项目名称')
