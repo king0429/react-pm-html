@@ -33,11 +33,11 @@ class NodeList extends Component {
                 <div className="node_info_line">
                   <div>
                     <span>节点名称</span>
-                    <input type="text" value={val.name} />
+                    <input type="text" value={val.name} maxLenght='16' />
                   </div>
                   <div>
                     <span>起止日期</span>
-                    <RangePicker value={val.date} placeholder={['起始日期', '结束日期']} className='date_picker' />
+                    <RangePicker placeholder={['起始日期', '结束日期']} className='date_picker' />
                   </div>
                 </div>
                 <div className="node_info_detail">
@@ -46,6 +46,7 @@ class NodeList extends Component {
                 </div>
                 <div className="node_info_btn">
                   <span>{val.isEdit ? '保存' : '修改'}</span>
+                  <span>删除节点</span>
                 </div>
               </div>
             )

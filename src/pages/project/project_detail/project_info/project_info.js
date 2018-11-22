@@ -63,7 +63,7 @@ class ProjectInfo extends Component {
         <div className="show_project_line">
           <div className="show_project_item">
             <span>项目ID</span>
-            <span>{this.state.showData.project_uid}</span>
+            <span>{window.frames.$number(this.state.showData.project_uid, 0)}</span>
           </div>
         </div>
         <div className="show_project_line">
@@ -95,7 +95,7 @@ class ProjectInfo extends Component {
             this.state.showPerson.length !== 0 ?
             this.state.showPerson.map((val, index) => {
               return (
-                <li>{val.name}</li>
+                <li key={index}>{val.name || val}</li>
               )
             })
             :

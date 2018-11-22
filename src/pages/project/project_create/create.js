@@ -55,7 +55,7 @@ class projectCreate extends Component {
   }
   // 提交数据
   handleSubmit () {
-    console.log(this.refs)
+    console.log(this.props)
     let {project_name, project_duration, project_level, project_desc} = this.refs
     if (project_name.value === '') {
       message.error('请输入项目名称')
@@ -66,7 +66,8 @@ class projectCreate extends Component {
       subData.project_persion = this.state.selectPerson
       axios.post(`/project/create_project`, subData).then(res => {
         if (res.data.code === 1) {
-          message.success('创建成功', 1000, () => {
+          message.success('创建成功', 1, () => {
+            this.props.history.push('/project')
           })
         }
       })
