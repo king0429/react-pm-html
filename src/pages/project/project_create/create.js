@@ -55,7 +55,7 @@ class projectCreate extends Component {
   }
   // 提交数据
   handleSubmit () {
-    console.log(this.refs)
+    console.log(this.props)
     let {project_name, project_duration, project_level, project_desc} = this.refs
     if (project_name.value === '') {
       message.error('请输入项目名称')
