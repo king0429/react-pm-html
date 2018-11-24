@@ -66,7 +66,8 @@ class projectCreate extends Component {
       subData.project_persion = this.state.selectPerson
       axios.post(`/project/create_project`, subData).then(res => {
         if (res.data.code === 1) {
-          message.success('创建成功', 1000, () => {
+          message.success('创建成功', 1, () => {
+            this.props.history.push('/project')
           })
         }
       })
