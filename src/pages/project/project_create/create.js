@@ -15,7 +15,7 @@ class projectCreate extends Component {
       formItem: {},
       childNode: [],
       personList: [
-        {name: '关联人1', id: 1, checked: false},
+        {name: '关联人1', id: 11, checked: false},
         {name: '关联人2', id: 2, checked: false},
         {name: '关联人3', id: 3, checked: false},
         {name: '关联人4', id: 4, checked: false},
